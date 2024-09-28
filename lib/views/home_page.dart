@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_portofolio/globals/app_assets.dart';
 import 'package:flutter_portofolio/globals/app_colors.dart';
 import 'package:flutter_portofolio/globals/app_text_styles.dart';
@@ -126,24 +127,7 @@ class HomePage extends StatelessWidget {
                       ],
                     ),
                     Constants.sizedBox(height: 20),
-                    MaterialButton(
-                      onPressed: () {},
-                      color: AppColors.themeColors,
-                      splashColor: AppColors.lawGreen,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 22, vertical: 10),
-                      shape: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          borderSide: BorderSide.none),
-                      hoverColor: AppColors.aqua,
-                      height: 45,
-                      minWidth: 130,
-                      focusElevation: 12,
-                      child: Text(
-                        'Download CV',
-                        style: AppTextStyles.headerTextStyle(),
-                      ),
-                    ),
+                    buildMaterialButton(onTap: () {}),
                   ],
                 )
               ],
@@ -154,17 +138,36 @@ class HomePage extends StatelessWidget {
     );
   }
 
+  MaterialButton buildMaterialButton({required VoidCallback onTap}) {
+    return MaterialButton(
+      onPressed: onTap,
+      color: AppColors.themeColors,
+      splashColor: AppColors.lawGreen,
+      padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
+      shape: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30), borderSide: BorderSide.none),
+      hoverColor: AppColors.aqua,
+      height: 45,
+      minWidth: 130,
+      focusElevation: 12,
+      child: Text(
+        'Download CV',
+        style: AppTextStyles.headerTextStyle(),
+      ),
+    );
+  }
+
   Ink buildSocialButton({required String asset}) {
     return Ink(
       width: 45,
       height: 45,
       decoration: BoxDecoration(
-          border: Border.all(color: AppColors.bgColors, width: 2.0),
+          border: Border.all(color: AppColors.themeColors, width: 3.0),
           color: AppColors.bgColors,
           shape: BoxShape.circle),
-      padding: EdgeInsets.all(12),
+      padding: EdgeInsets.all(6),
       child: InkWell(
-        borderRadius: BorderRadius.circular(500.0),
+        borderRadius: BorderRadius.circular(50.0),
         hoverColor: AppColors.aqua,
         splashColor: AppColors.lawGreen,
         onTap: () {},
